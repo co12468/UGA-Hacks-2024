@@ -21,6 +21,13 @@ const HomeScreen = () => {
     {key: 'Adams'},
     {key: 'Atlanta'}
   ];
+  
+  const namesContainer = document.getElementById("namesContainer");
+  data.forEach(item => {
+    const button = document.createElement("button");
+    button.textContent = item.key;
+    namesContainer.appendChild(button)
+  });
 
   const handleSearch = (searchText) => {
     const filteredItems = data.filter((item) =>
