@@ -17,7 +17,7 @@ const CustomTabBarButton = ({children, onPress}) => (
       top: 0,
       justifyContent: 'space-around',
       alignItems: 'center',
-      padding: 15,
+      padding: 14,
       backgroundColor: 'rgba(100, 100, 200, 0.8)',
     }}
     onPress={onPress}
@@ -41,9 +41,9 @@ export default function App() {
             tabBarStyle: {backgroundColor: '#c0c0f9'},
           })}
         >
-          <Tab.Screen name="Select Location" component={HomeScreen} />
-          <Tab.Screen name="Missing Reports" component={ReportScreen} />
-          <Tab.Screen name="Local Services" component={ServiceScreen} />
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Reports" component={ReportScreen} />
+          <Tab.Screen name="Services" component={ServiceScreen} />
           <Tab.Screen name="City Risk Factor" component={SearchScreen} />
         </Tab.Navigator>
         <StatusBar style="auto" />
