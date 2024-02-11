@@ -32,7 +32,6 @@ export default function App() {
       <View style={styles.container}>
         <Tab.Navigator
           screenOptions={({route}) => ({
-            tabBarLabel: route.name,
             tabBarButton: (props) => (
               <CustomTabBarButton {...props}>
                 <Text style={{fontSize: 18, color: 'black'}}>{route.name}</Text>

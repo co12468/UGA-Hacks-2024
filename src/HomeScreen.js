@@ -1,24 +1,57 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {FlatList, View, Text, TextInput, StyleSheet} from 'react-native';
 
 const HomeScreen = () => {
-    const [text, setText] = useState('');
-    return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <TextInput
-            style={{height: 40}}
-            placeholder="Type here to search"
-            onChangeText={newText => setText(newText)}
-            defaultValue={text}
-        />
-        <Text style={{fontSize: 24, color: 'blue'}}>
-            {text
-            .split(' ')
-            .map(word => word && '🍕')
-            .join(' ')}
-        </Text>
-        </View>
+  const [text, setText] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+
+  const data = [
+    {key: 'Devin'},
+    {key: 'Dan'},
+    {key: 'Dominic'},
+    {key: 'Jackson'},
+    {key: 'James'},
+    {key: 'Joel'},
+    {key: 'John'},
+    {key: 'Jillian'},
+    {key: 'Jimmy'},
+    {key: 'Julie'},
+  ];
+
+  const handleSearch = (searchText) => {
+    const filteredItems = data.filter((item) =>
+      item.key.toLowerCase().includes(searchText.toLowerCase())
     );
+    setFilteredData(filteredItems);
+    setText(searchText);
+  };
+
+  return (
+    <View style={{flex: 1, paddingTop: 20, paddingLeft: 10, alignItems: 'left'}}>
+      <TextInput
+        style={{height: 40, fontSize: 20}}
+        placeholder="Type here to search"
+        onChangeText={handleSearch}
+        value={text}
+      />
+      {text.length > 0 ? (
+        <FlatList
+          data={filteredData.length > 0 ? filteredData : data}
+          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+        />
+      ) : null}
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  item: {
+    fontSize: 18,
+    height: 25,
+  },
+});
 
 export default HomeScreen;
