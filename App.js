@@ -8,6 +8,7 @@ import HomeScreen from './src/HomeScreen';
 import ReportScreen from './src/ReportScreen';
 import SearchScreen from './src/SearchScreen';
 import ServiceScreen from './src/ServiceScreen';
+import NewScreen from './src/NewScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,6 +45,7 @@ export default function App() {
           <Tab.Screen name="Reports" component={ReportScreen} />
           <Tab.Screen name="Services" component={ServiceScreen} />
           <Tab.Screen name="City Risk Factor" component={SearchScreen} />
+          <Tab.Screen name=" " component={NewScreen} />
         </Tab.Navigator>
         <StatusBar style="auto" />
       </View>

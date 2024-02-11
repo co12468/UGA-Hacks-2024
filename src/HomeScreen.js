@@ -1,34 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {FlatList, View, Text, TextInput, StyleSheet} from 'react-native';
+import jsonData from './cityData.json';
 
 const HomeScreen = () => {
   const [text, setText] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [data, setData] = useState([]);
 
-  const data = [
-    {key: 'Abbeville'},
-    {key: 'Abbotsford'},
-    {key: 'Aberdeen'},
-    {key: 'Abingdon'},
-    {key: 'Abington'},
-    {key: 'Abram'},
-    {key: 'Acampo'},
-    {key: 'Accomac'},
-    {key: 'Accord'},
-    {key: 'Acton'},
-    {key: 'Ada'},
-    {key: 'Adairsville'},
-    {key: 'Adams'},
-    {key: 'Adkins'},
-    {key: 'Afton'},
-    {key: 'Agency'},
-    {key: 'Agoura Hills'},
-    {key: 'Ainsworth'},
-    {key: 'Airville'},
-    {key: 'Akron'},
-    {key: 'Alabaster'},
-    {key: 'Atlanta'},
-  ];
+  useEffect(() => {
+    // console.log('Loaded JSON data:', jsonData);
+
+    if (Array.isArray(jsonData?.wordList)) {
+      setData(jsonData.wordList);
+    } else {
+      console.error("JSON data is not in the expected format");
+    }
+  }, []);
     /*
   const namesContainer = document.getElementById("namesContainer");
   data.forEach(item => {
@@ -38,8 +25,8 @@ const HomeScreen = () => {
   });
     */
   const handleSearch = (searchText) => {
-    const filteredItems = data.filter((item) =>
-      item.key.toLowerCase().includes(searchText.toLowerCase())
+    const filteredItems = (data || []).filter((item) =>
+      item.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredData(filteredItems);
     setText(searchText);
@@ -53,12 +40,12 @@ const HomeScreen = () => {
         onChangeText={handleSearch}
         value={text}
       />
-      {text.length > 0 ? (
+      {text.length > 0 && (
         <FlatList
-          data={filteredData.length > 0 ? filteredData : data}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+            data={filteredData}
+            renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
         />
-      ) : null}
+      )}
     </View>
   );
 };

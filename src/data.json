@@ -1,9 +1,11 @@
 {
     "wordList": [
-    "word1",
-    "word2",
-    "word3",
-    "word200000"
+        "word1",
+        "word2",
+        "word3",
+        "word200000", 
+        "Atlanta",
+        "Las Vegas"
     
     ]
 }
