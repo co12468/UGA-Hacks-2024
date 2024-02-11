@@ -41,10 +41,10 @@ export default function App() {
             tabBarStyle: {backgroundColor: '#c0c0f9'},
           })}
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Reports" component={ReportScreen} />
-          <Tab.Screen name="Services" component={ServiceScreen} />
-          <Tab.Screen name="City Search" component={SearchScreen} />
+          <Tab.Screen name="Select Location" component={HomeScreen} />
+          <Tab.Screen name="Missing Reports" component={ReportScreen} />
+          <Tab.Screen name="Local Services" component={ServiceScreen} />
+          <Tab.Screen name="City Risk Factor" component={SearchScreen} />
         </Tab.Navigator>
         <StatusBar style="auto" />
       </View>
