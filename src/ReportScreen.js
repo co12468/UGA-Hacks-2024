@@ -1,24 +1,27 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {ScrollView, Text, Image, TouchableHighlight, LinkingIOS} from 'react-native';
 
 const ReportScreen = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <ScrollView>
+      <TouchableHighlight 
+        onPress={() => LinkingIOS.openURL('https://www.missingkids.org/poster/NCMC/601906/1')}>
+        <Image
+          source={
+            require('./images/mk1.jpg')
+          }
+          style={{maxWidth: 200, maxHeight: 240, margin: 20, marginLeft: 98, height: 240}}
+          resizeMode="stretch"
+        />
+      </TouchableHighlight>
       <Image
         source={
-          require('./images/reports.png')
+          require('./images/missing.png')
         }
-        style={{maxWidth: 380, maxHeight: 200, marginBottom: 20}}
+        style={{maxWidth: 420, maxHeight: 1400}}
         resizeMode="stretch"
       />
-      <Image
-            source={
-              require('./images/resources.png')
-            }
-            style={{maxWidth: 380, maxHeight: 200}}
-            resizeMode="stretch"
-          />
-    </View>
+    </ScrollView>
   );
 };
 

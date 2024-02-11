@@ -1,11 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 
 const SearchScreen = () => {
     return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{fontSize: 24, color: 'blue'}}>City Risk Factor</Text>
-        </View>
+        <ScrollView>
+          <Image
+            source={
+              require('./images/help.png')
+            }
+            //style={{maxWidth: 500}}
+            resizeMode="stretch"
+          />
+        </ScrollView>
     );
 };
 
