@@ -19,7 +19,15 @@ const HomeScreen = () => {
     {key: 'Ada'},
     {key: 'Adairsville'},
     {key: 'Adams'},
-    {key: 'Atlanta'}
+    {key: 'Adkins'},
+    {key: 'Afton'},
+    {key: 'Agency'},
+    {key: 'Agoura Hills'},
+    {key: 'Ainsworth'},
+    {key: 'Airville'},
+    {key: 'Akron'},
+    {key: 'Alabaster'},
+    {key: 'Atlanta'},
   ];
   
   const namesContainer = document.getElementById("namesContainer");
