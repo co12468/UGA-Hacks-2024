@@ -6,16 +6,20 @@ const HomeScreen = () => {
   const [filteredData, setFilteredData] = useState([]);
 
   const data = [
-    {key: 'Devin'},
-    {key: 'Dan'},
-    {key: 'Dominic'},
-    {key: 'Jackson'},
-    {key: 'James'},
-    {key: 'Joel'},
-    {key: 'John'},
-    {key: 'Jillian'},
-    {key: 'Jimmy'},
-    {key: 'Julie'},
+    {key: 'Abbeville'},
+    {key: 'Abbotsford'},
+    {key: 'Aberdeen'},
+    {key: 'Abingdon'},
+    {key: 'Abington'},
+    {key: 'Abram'},
+    {key: 'Acampo'},
+    {key: 'Accomac'},
+    {key: 'Accord'},
+    {key: 'Acton'},
+    {key: 'Ada'},
+    {key: 'Adairsville'},
+    {key: 'Adams'},
+    {key: 'Adkins'}
   ];
 
   const handleSearch = (searchText) => {
