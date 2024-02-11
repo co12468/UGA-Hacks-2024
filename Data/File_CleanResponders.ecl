@@ -22,7 +22,7 @@ EXPORT CleanFire := PROJECT(Fire,TRANSFORM(CleanFireRec,
                                           SELF.addressbuildingname := STD.STR.ToUpperCase(LEFT.addressbuildingname),
                                           SELF.address             := STD.STR.ToUpperCase(LEFT.address),
                                           SELF.city                := STD.STR.ToUpperCase(LEFT.city),
-                                          SELF.State               := STD.STR.ToUpperCase(LEFT.state),
+                                          SELF.state               := STD.STR.ToUpperCase(LEFT.state),
                                           SELF.zipcode             := STD.STR.ToUpperCase(LEFT.zipcode)));
 EXPORT CleanFireFIPS := JOIN(CleanFire,Cities,
                            LEFT.city  = STD.STR.ToUpperCase(RIGHT.city) AND
@@ -32,7 +32,7 @@ EXPORT CleanFireFIPS := JOIN(CleanFire,Cities,
                                      SELF             := LEFT),LEFT OUTER,LOOKUP);                                          
                                           
 EXPORT CleanFireDS      := DATASET('~HMK::OUT::Fire',CleanFireRec,FLAT);
-EXPORT CleanFireIDX     := INDEX(CleanFireDS,{city,state},{CleanFireDS},'~HMK::IDX::Fire::CityPay');
+EXPORT CleanFireIDX     := INDEX(CleanFireDS,{city,state},{CleanFireDS}, '~HMK::IDX::Fire::CityPay');
 EXPORT CleanFireFIPSIDX := INDEX(CleanFireDS,{PrimaryFIPS},{CleanFireDS},'~HMK::IDX::Fire::FIPSPay');
 EXPORT BuildFireIDX     := BUILD(CleanFireIDX,OVERWRITE);
 EXPORT BuildFireFIPSIDX := BUILD(CleanFireFIPSIDX,OVERWRITE);
