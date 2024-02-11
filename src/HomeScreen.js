@@ -19,7 +19,7 @@ const HomeScreen = () => {
     {key: 'Ada'},
     {key: 'Adairsville'},
     {key: 'Adams'},
-    {key: 'Adkins'}
+    {key: 'Atlanta'}
   ];
 
   const handleSearch = (searchText) => {
